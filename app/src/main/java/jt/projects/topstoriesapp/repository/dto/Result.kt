@@ -16,7 +16,7 @@ data class Result(
     val section: String,
     val short_url: String,
     val subsection: String,
-    val title: String,
+    val title: String?,
     val updated_date: String,
     val uri: String,
     val url: String

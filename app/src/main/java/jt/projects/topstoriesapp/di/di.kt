@@ -20,7 +20,7 @@ val repoModule = module {
     // interactors
     single<StoryInteractor> { StoryInteractor(repo = get<IStoryRepo>()) }
 
-    // data sources
+    // data sources (RemoteStoryDataSource or FakeStoryDataSource)
     single<IStoryRepo> { RemoteStoryDataSource() }
 }
 

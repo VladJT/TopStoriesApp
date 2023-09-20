@@ -3,7 +3,7 @@ package jt.projects.topstoriesapp.utils
 /**
  * LOGS
  */
-const val LOG_TAG = "TAG"
+const val LOG_TAG = "@@@"
 
 
 /**

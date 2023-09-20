@@ -6,11 +6,12 @@ import jt.projects.topstoriesapp.repository.dto.StoryDTO
 
 fun StoryDTO.toStoryList(): List<Story> {
     val result = mutableListOf<Story>()
-    this.results.forEach { r ->
+    this.results.forEach { data ->
         result.add(
             Story(
-                description = r.multimedia[0].caption ?: "",
-                imageUrl = r.multimedia[0].url ?: ""
+                description = data.multimedia[0].caption ?: "",
+                title = data.title ?: "no title",
+                imageUrl = data.multimedia[0].url ?: ""
             )
         )
     }

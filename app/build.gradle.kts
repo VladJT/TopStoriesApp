@@ -59,7 +59,6 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-
     // Coil image download
     implementation("io.coil-kt:coil:2.2.2")
 
@@ -75,11 +74,4 @@ dependencies {
     // Koin
     implementation("io.insert-koin:koin-core:3.4.0")
     implementation("io.insert-koin:koin-android:3.4.0")
-//    // DAGGER 2
-//    implementation("com.google.dagger:dagger:2.44")
-//    kapt("com.google.dagger:dagger-compiler:2.44")
-//
-//    implementation("com.google.dagger:dagger-android:2.44")
-//    implementation("com.google.dagger:dagger-android-support:2.44")
-//    kapt("com.google.dagger:dagger-android-processor:2.44")
 }

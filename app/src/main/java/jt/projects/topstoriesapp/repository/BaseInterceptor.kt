@@ -1,6 +1,8 @@
 package jt.projects.topstoriesapp.repository
 
 import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import java.io.IOException
 
 //В библиотеку можно внедрить перехватчики для изменения заголовков при помощи класса Interceptor из OkHttp.
@@ -8,6 +10,11 @@ import java.io.IOException
 // Retrofit.Builder через метод client()
 class BaseInterceptor private constructor() : Interceptor {
     private var responseCode: Int = 0
+
+    companion object {
+        val interceptor: BaseInterceptor
+            get() = BaseInterceptor()
+    }
 
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): okhttp3.Response {
@@ -37,8 +44,15 @@ class BaseInterceptor private constructor() : Interceptor {
         UNDEFINED_ERROR
     }
 
-    companion object {
-        val interceptor: BaseInterceptor
-            get() = BaseInterceptor()
-    }
+    /**
+    В библиотеку можно внедрить перехватчики для изменения заголовков при помощи класса Interceptor из OkHttp.
+    Сначала следует создать объект перехватчика и передать его в OkHttp, который в свою очередь следует явно подключить в
+    Retrofit.Builder через метод client().
+     */
+    fun createOkHttpClient() =
+        OkHttpClient.Builder().addInterceptor(interceptor).addInterceptor(
+            HttpLoggingInterceptor().setLevel(
+                HttpLoggingInterceptor.Level.BODY
+            )
+        ).build()
 }
