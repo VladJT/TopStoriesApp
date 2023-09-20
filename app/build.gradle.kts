@@ -74,7 +74,7 @@ dependencies {
 
     // Koin
     implementation("io.insert-koin:koin-core:3.4.0")
-    implementation ("io.insert-koin:koin-android:3.4.0")
+    implementation("io.insert-koin:koin-android:3.4.0")
 //    // DAGGER 2
 //    implementation("com.google.dagger:dagger:2.44")
 //    kapt("com.google.dagger:dagger-compiler:2.44")

@@ -2,7 +2,12 @@ package jt.projects.topstoriesapp.di
 
 
 import jt.projects.topstoriesapp.App
+import jt.projects.topstoriesapp.interactors.StoryInteractor
+import jt.projects.topstoriesapp.repository.IStoryRepo
+import jt.projects.topstoriesapp.repository.RemoteStoryDataSource
+import jt.projects.topstoriesapp.ui.home.HomeViewModel
 import org.koin.android.ext.koin.androidApplication
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
@@ -13,14 +18,13 @@ val appModule = module {
 
 val repoModule = module {
     // interactors
- //   single<FilmsInteractor> { FilmsInteractor(repo = get<IFilmsRepo>()) }
+    single<StoryInteractor> { StoryInteractor(repo = get<IStoryRepo>()) }
 
     // data sources
- //   single<IFilmsRepo> { FilmsRemoteDataSource() }
+    single<IStoryRepo> { RemoteStoryDataSource() }
 }
 
 
 val vmModule = module {
- //   viewModel { HomeViewModel(interactor = get()) }
-  //  viewModel { DetailsViewModel(interactor = get()) }
+    viewModel { HomeViewModel(interactor = get()) }
 }
